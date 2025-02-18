@@ -1,0 +1,52 @@
+.bug-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: auto;
+}
+.status-priority-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.bug-form label {
+    font-weight: bold;
+}
+
+.bug-form input,
+.bug-form textarea,
+.bug-form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.bug-form input,
+.bug-form textarea {
+    box-sizing: border-box;
+}
+.bug-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.bug-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.bug-form button:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,93 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90vw;
+  margin: auto;
+}
+.app-container {
+  height: 90vh;
+  width: 90vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  background: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  
+  display: flex;
+
+}
+  
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.left-panel {
+  margin: 1%;
+  width: 20%;
+  max-height: 88.2vh;
+}
+.right-panel {
+  width: 70%;
+  margin: 1%;
+  padding-left: 10px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+}
+.action-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  padding-left: 25px; 
+  margin-bottom: 15px;
+}
+
+.action-panel select,
+.action-panel .create-button {
+  padding: 8px 10px; /* Adjust padding for smaller size */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  width: 90%;
+  align-self: center;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.action-panel .create-button {
+  background-color: #007bff;
+  color: white;
+  margin-top: 10px;
+}
+
+.action-panel .create-button:hover {
+  background-color: #0056b3; /* Darker color on hover */
+}
