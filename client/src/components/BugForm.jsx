@@ -1,23 +1,26 @@
 import React, { useState } from "react";
-import { createBug } from "../api";
+import { createBug, fetchProjects, createProject } from "../api";
 import "./BugForm.css";
 
-function BugForm({ onClose, onBugAdded }) {
+function BugForm({ onClose, onBugAdded, projects }) {
     const [title, setTitle] = useState("");
     const [status, setStatus] = useState('Open');
     const [description, setDescription] = useState("");
     const [priority, setPriority] = useState("Medium");
+    const [projectId, setProjectId] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         
         const newBug = await createBug({title, status, description, priority});
+
         if (newBug) {
             onBugAdded(newBug);
             setTitle("");
             setStatus('Open');
             setPriority("Medium");
             setDescription("");
+            setProjectId('');
         }
     };
 
@@ -31,7 +34,16 @@ function BugForm({ onClose, onBugAdded }) {
                    onChange={(e) => setTitle(e.target.value)}
                    required 
             />
-
+            <label htmlFor="projectId">Project:</label>
+            <select id="projectId" 
+                    value={projectId} 
+                    onChange={(e) => setProjectId(e.target.value)}
+                    >
+                        <option value="">Select Project</option>
+                        {projects.map((project) => (
+                            <option key={project._id} value={project._id}>{project.name}</option>
+                        ))}
+                    </select>
             <div className="status-priority-row">
                 <div className="form-group">
                     <label htmlFor="status">Status:</label>

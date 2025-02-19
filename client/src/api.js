@@ -40,3 +40,23 @@ export const updateBug = async (id, bug) => {
         return null;
     }
 };
+
+export const fetchProjects = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/api/projects`);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching projects:", error);
+        return [];
+    }
+};
+
+export const createProject = async (project) => {
+    try {
+        const response = await axios.post(`${API_URL}/api/projects`, project);
+        return response.data;
+    } catch (error) {
+        console.error("Error creating project:", error);
+        return null;
+    }
+};
