@@ -26,7 +26,7 @@
     flex: 1;
 }
 
-.bug-form {
+.bug-edit-form {
     display: flex;
     flex-direction: column;
     padding: 20px;

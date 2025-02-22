@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import BugList from "./components/BugList";
 import BugForm from "./components/BugForm";
-import BugDetails from "./components/BugDetails";
+import BugDetails from "./components/BugDetails.jsx";
 import ProjectForm from "./components/ProjectForm";
 import { fetchBugs, fetchProjects } from "./api"
 
@@ -29,15 +29,16 @@ function App() {
     setBugs(data);
   };
   const loadProjects = async () => {
-    setProjects(await fetchProjects());
+    const data = await fetchProjects();
+    setProjects(data);
   };
   const handleSelectBug = (bug) => {
     setSelectedBug(bug);
   };
   const handleBugAdded = async () => {
     setShowForm(false);
+    
     loadBugs();
-
     setProjects(await fetchProjects());
   };
 
@@ -81,9 +82,9 @@ function App() {
     if (filterPriority !== "All" && bug.priority !== filterPriority) {
       return false;
     }
-    if (filterProject !== "All" && bug.projectId?._id !== filterProject){
+    if (filterProject !== "All" && (!bug.projectId || String(bug.projectId._id) !== String(filterProject))) {
       return false;
-    }
+  }
     return true;
   });
 

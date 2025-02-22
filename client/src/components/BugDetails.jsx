@@ -42,10 +42,10 @@ const BugDetails = ({ bug, onBugUpdated, onBugDeleted }) => {
     return (
         <div className="bug-info">
             {isEditing ? (
-                <form className="bug-form" onSubmit={handleEditSubmit}>
+                <form className="bug-edit-form" onSubmit={handleEditSubmit}>
                     <input type="text"
                            name="title"
-                           value={editedBug.title}
+                           value={`${editedBug.title}`}
                            onChange={handleEditChange}
                            required
                     />
@@ -74,7 +74,7 @@ const BugDetails = ({ bug, onBugUpdated, onBugDeleted }) => {
             ) : (
                 <>
                     <div className="title-container">
-                        <h2 className="title">{bug.title}</h2>
+                        <h2 className="title">{`[${bug.projectId.name}] ${bug.title}`}</h2>
                     </div>
                     <p><strong>Status:</strong> {bug.status}</p>
                     <p><strong>Priority:</strong> {bug.priority}</p>

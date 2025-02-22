@@ -7,9 +7,15 @@ const ProjectForm = ({ onClose, onProjectAdded }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await createProject({ name });
-        onProjectAdded();
-        onClose();
+        const newProject = await createProject({ name });
+
+        if (newProject) {
+            setName('');
+            onProjectAdded();
+            onClose();
+        } else {
+            console.error("Shit is not bussing");
+        }
     };
 
     return (

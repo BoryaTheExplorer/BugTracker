@@ -12,7 +12,7 @@ function BugForm({ onClose, onBugAdded, projects }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        const newBug = await createBug({title, status, description, priority});
+        const newBug = await createBug({title, status, description, priority, projectId});
 
         if (newBug) {
             onBugAdded(newBug);
